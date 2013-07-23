@@ -1,5 +1,7 @@
 /*
- * 
+ * lng_JqueryUrlHashAction version 1.0
+ * ce plugin vous permet d'attaché à un essemple élément des actions spécifiques à
+ * chacun et une action commune.
  */
 (function($) {
 	var lng_UrlHashAction_title = document.title;
@@ -25,6 +27,11 @@
 		
 		function onClick(){
 			document.title = lng_UrlHashAction_title + ' | ' + $(this).attr("lng_title");
+			//création de la fonction
+			var fn = window[$(this).attr("lng_action")];
+			//appel à la function
+			fn();
+			//lancement de la function générique
 			opts.callback();
 		}
 		
